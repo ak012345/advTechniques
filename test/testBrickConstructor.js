@@ -2,14 +2,16 @@ var assert = require('assert');
 var lego = require('../legos');
 const Brick = lego.Brick;
 
-describe('Brick Tests:', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal([1, 2, 3].indexOf(4), -1);
+describe('Brick Constructor Tests:', function() {
+
+    const redFourBrick = new Brick("Red", 4);
+
+    it('Should return color "Red"', function() {
+      assert.equal(redFourBrick.color, "Red");
     });
-  });
 
-
-
-
+    it('Should return Size 4', function() {
+      assert.equal(redFourBrick.size, 4);
+    });
+    
 });
