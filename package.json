@@ -1,0 +1,14 @@
+{
+  "name": "projct1package",
+  "version": "0.0.1",
+  "description": "This description is the greatest desciption of all time",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Alex Kernan",
+  "license": "ISC"
+}
