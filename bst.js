@@ -69,7 +69,7 @@ function  countSubtree(node){
   if(node.left == null && node.right == null){
     return 1;
   } else {
-    return (countSubtree(node.left) + countSubtree(node.right));
+    return 1 + (countSubtree(node.left) + countSubtree(node.right));
   }
 
 }

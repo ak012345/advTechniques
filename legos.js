@@ -74,8 +74,13 @@ function hasBrick(color, size) {
 
 function legoPile_count(){
   var totalNumberOfBricks = 0;
-  forEach((this.pile, i) => {
-    totalBrick  += i.count
-  });
+  var loopCounter = 0;
+  for(let key in this.pile) {
+    let currentBST = this.pile[key];
+      loopCounter += 1;
+    totalNumberOfBricks  += currentBST.count();
+    console.log("=====>: Number of " + key + " bricks: " + currentBST.count());
+  };
+  console.log("///====> Loop Counter" + loopCounter);
   return totalNumberOfBricks;
 }
