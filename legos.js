@@ -1,12 +1,17 @@
 module.exports.Brick = Brick;
 module.exports.LegoPile = LegoPile;
 
+
+var bst = require('./bst');
+const BST = bst.BST;
+
 function Brick(color, size) {
 this.color = color.toUpperCase();
 this.size = size;
 }
 
 function LegoPile(){
+
 
 this.pile = new Object();
 this.pile['RED'] = new BST();
@@ -21,7 +26,6 @@ this.insert = insertBrickByColor;
 
 function insertBrickByColor(brick){
 
-this.pile = new LegoPile();
 
   switch(brick.color) {
     case RED:
