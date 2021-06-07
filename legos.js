@@ -28,23 +28,23 @@ function insertBrickByColor(brick){
 
 
   switch(brick.color) {
-    case RED:
-        this.pile.RED(insert(brick));
+    case "RED":
+        this.pile.RED.insert(brick);
     break;
-    case GREEN:
-        this.pile.GREEN(insert(brick));
+    case "GREEN":
+        this.pile.GREEN.insert(brick);
     break;
-    case BLUE:
-        this.pile.BLUE(insert(brick));
+    case "BLUE":
+        this.pile.BLUE.insert(brick);
     break;
-    case YELLOW:
-        this.pile.YELLOW(insert(brick));
+    case "YELLOW":
+        this.pile.YELLOW.insert(brick);
     break;
-    case BLACK:
-      this.pile.BLACK(insert(brick));
+    case "BLACK":
+      this.pile.BLACK.insert(brick);
     break;
-    case WHITE:
-        this.pile.WHITE(insert(brick));
+    case "WHITE":
+        this.pile.WHITE.insert(brick);
     break;
   }
 

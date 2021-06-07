@@ -7,6 +7,10 @@ const Brick = lego.Brick;
 const ThePile = lego.LegoPile;
 
 describe('legoPile Test:', function() {
+
+
+const testLegoPile = new ThePile();
+
 const redFiveBrick = new Brick("Red",5);
 const redThreeBrick = new Brick("Red",3);
 const redSevenBrick = new Brick("Red",7);
@@ -15,18 +19,27 @@ const blueFiveBrick = new Brick("blue",5);
 const blueThreeBrick = new Brick("blue",3);
 const blueSevenBrick = new Brick("blue",7);
 
-const testLegoPile = new ThePile();
 
-console.log(testLegoPile);
 
-testLegoPile.insertBrickByColor(redFiveBrick);
-testLegoPile.insertBrickByColor(redThreeBrick);
-testLegoPile.insertBrickByColor(redSevenBrick);
+testLegoPile.insert(redFiveBrick);
+it('Checks that redFiveBrick is root Node', function() {
+  assert.equal(testBST.root.data, redFiveBrick);
+});
 
-testLegoPile.insertBrickByColor(blueFiveBrick);
-testLegoPile.insertBrickByColor(blueThreeBrick);
-testLegoPile.insertBrickByColor(blueSevenBrick);
 
-console.log(testLegoPile);
+
+testLegoPile.insert(redThreeBrick);
+testLegoPile.insert(redSevenBrick);
+
+testLegoPile.insert(blueFiveBrick);
+testLegoPile.insert(blueThreeBrick);
+testLegoPile.insert(blueSevenBrick);
+
+
+    it('Checks that redFiveBrick is root Node', function() {
+      assert.equal(testBST.root.data, redFiveBrick);
+    });
+
+
 
 });
