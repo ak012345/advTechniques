@@ -4,19 +4,19 @@ module.exports.BST = BST;
 function Node(data, left, right) {
    this.data = data;
    this.left = left;
-    this.right = right;
-     this.show = show;
-   }
+   this.right = right;
+   this.show = show;
+}
 
-   function show() {
-      return this.data;
-    }
+function show() {
+   return this.data;
+}
 
-    function BST() {
-      this.root = null;
-       this.insert = insert;
-        // this.inOrder = inOrder;
-      }
+function BST() {
+  this.root = null;
+  this.insert = insert;
+  this.count = BST_count;
+}
 
 function insert(data) {
          var n = new Node(data, null, null);
@@ -47,7 +47,7 @@ function insert(data) {
           }
           // console.log("ROOT");
           // console.log(this.root);
-      
+
           if(this.root.left != null){
             // console.log("LEFT OF ROOT");
             // console.log(this.root.left);
@@ -56,4 +56,20 @@ function insert(data) {
             // console.log("RIGHT OF ROOT");
             // console.log(this.root.right);
           }
+}
+
+function BST_count(){
+  return countSubtree(this.root);
+}
+
+function  countSubtree(node){
+  if(node == null){
+    return 0;
+  }
+  if(node.left == null && node.right == null){
+    return 1;
+  } else {
+    return (countSubtree(node.left) + countSubtree(node.right));
+  }
+
 }

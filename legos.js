@@ -22,6 +22,7 @@ this.pile['BLACK'] = new BST();
 this.pile['WHITE'] = new BST();
 this.insert = insertBrickByColor;
 this.hasBrick = hasBrick;
+this.count = legoPile_count;
 
 }
 
@@ -69,4 +70,12 @@ function hasBrick(color, size) {
       }
   }
   return true;
+}
+
+function legoPile_count(){
+  var totalNumberOfBricks = 0;
+  forEach((this.pile, i) => {
+    totalBrick  += i.count
+  });
+  return totalNumberOfBricks;
 }

@@ -30,7 +30,7 @@ describe('Check if specific brick exist', function() {
     const blueEightBrick = new Brick("blue",8 );
     testLegoPile.insert(blueEightBrick);
 
-    console.log("WORKING LOG" + testLegoPile.pile.RED.root.data)
+
     it('Checks if pile contains a redEightBrick', function() {
       assert.equal(testLegoPile.hasBrick("RED", 8), true);
     });
@@ -51,4 +51,8 @@ describe('Check if specific brick exist', function() {
       assert.equal(testLegoPile.hasBrick("BLACK", 8), false);
     });
 
+
+    it('BASTARD ---->  Counts the number of bricks in the pile', function() {
+      assert.equal(testLegoPile.count, 7);
+    });
 });
