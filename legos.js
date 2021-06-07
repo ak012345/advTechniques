@@ -21,11 +21,11 @@ this.pile['YELLOW'] = new BST();
 this.pile['BLACK'] = new BST();
 this.pile['WHITE'] = new BST();
 this.insert = insertBrickByColor;
+this.hasBrick = hasBrick;
 
 }
 
 function insertBrickByColor(brick){
-
 
   switch(brick.color) {
     case "RED":
@@ -48,4 +48,25 @@ function insertBrickByColor(brick){
     break;
   }
 
+}
+
+function hasBrick(color, size) {
+  var current = this.pile[color].root;
+
+  if (current == null) {
+    return false;
+  }
+
+  while (current.data.size != size) {
+     if (size < current.data.size) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+
+      if (current == null) {
+        return false;
+      }
+  }
+  return true;
 }

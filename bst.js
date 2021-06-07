@@ -45,17 +45,15 @@ function insert(data) {
 
             }
           }
-          console.log("ROOT");
-          console.log(this.root);
-          // console.log("---> data.size:" + data.size);
-          // console.log("---> current.show.size:" + current.show.size);
-          // console.log("---> current.data.size:" + current.data.size);
+          // console.log("ROOT");
+          // console.log(this.root);
+      
           if(this.root.left != null){
-            console.log("LEFT OF ROOT");
-            console.log(this.root.left);
+            // console.log("LEFT OF ROOT");
+            // console.log(this.root.left);
           }
           if(this.root.right != null){
-            console.log("RIGHT OF ROOT");
-            console.log(this.root.right);
+            // console.log("RIGHT OF ROOT");
+            // console.log(this.root.right);
           }
 }

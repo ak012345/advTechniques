@@ -6,7 +6,7 @@ const Brick = lego.Brick;
 
 const ThePile = lego.LegoPile;
 
-describe('legoPile Test:', function() {
+describe('legoPile Insertion Test:', function() {
     const testLegoPile = new ThePile();
     describe('Insert 1 brick', function() {
 
@@ -66,8 +66,6 @@ describe('legoPile Test:', function() {
         it('Checks that blue root has no children', function() {
           assert((testLegoPile.pile.BLUE.left == null) && (testLegoPile.pile.BLUE.right == null));
         });
-
-
 
         it('Checks that first yellow brick is the root Node of yellow BST', function() {
           assert.equal(testLegoPile.pile.YELLOW.root.data, yellowFiveBrick);
@@ -148,5 +146,4 @@ describe('legoPile Test:', function() {
         });
 
     });
-
-});
+  });
