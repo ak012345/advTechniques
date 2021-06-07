@@ -6,7 +6,7 @@ const Brick = lego.Brick;
 
 const ThePile = lego.LegoPile;
 
-describe('Count numebr of legos in pile', function() {
+describe('Count number of legos in pile', function() {
     const testLegoPile = new ThePile();
 
     const redFiveBrick = new Brick("Red", 5);
@@ -40,7 +40,6 @@ describe('Count numebr of legos in pile', function() {
     testLegoPile.insert(blueEightBrick);
 
     it('checks that the number of bricks equals 11', function() {
-      console.log("#=====>  Total number of brick in the pile: " + testLegoPile.count());
       assert.equal(testLegoPile.count(), 11);
     });
 });

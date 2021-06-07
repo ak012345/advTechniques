@@ -5,7 +5,7 @@ var bst = require('../bst');
 const Brick = lego.Brick;
 const BST = bst.BST;
 
-describe('Brick BST Tests:', function() {
+describe('Brick BST Insert Tests:', function() {
 
 
     const testBST = new BST();

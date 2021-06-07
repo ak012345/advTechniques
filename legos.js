@@ -11,8 +11,6 @@ this.size = size;
 }
 
 function LegoPile(){
-
-
 this.pile = new Object();
 this.pile['RED'] = new BST();
 this.pile['GREEN'] = new BST();
@@ -23,11 +21,9 @@ this.pile['WHITE'] = new BST();
 this.insert = insertBrickByColor;
 this.hasBrick = hasBrick;
 this.count = legoPile_count;
-
 }
 
 function insertBrickByColor(brick){
-
   switch(brick.color) {
     case "RED":
         this.pile.RED.insert(brick);
@@ -74,13 +70,10 @@ function hasBrick(color, size) {
 
 function legoPile_count(){
   var totalNumberOfBricks = 0;
-  var loopCounter = 0;
   for(let key in this.pile) {
     let currentBST = this.pile[key];
-      loopCounter += 1;
     totalNumberOfBricks  += currentBST.count();
-    console.log("=====>: Number of " + key + " bricks: " + currentBST.count());
-  };
-  console.log("///====> Loop Counter" + loopCounter);
+    };
+
   return totalNumberOfBricks;
 }

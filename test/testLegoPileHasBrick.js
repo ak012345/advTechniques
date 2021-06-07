@@ -6,7 +6,7 @@ const Brick = lego.Brick;
 
 const ThePile = lego.LegoPile;
 
-describe('Check if specific brick exist', function() {
+describe('Search/Query for a specific brick:', function() {
     const testLegoPile = new ThePile();
 
     const redFiveBrick = new Brick("Red", 5);
@@ -48,7 +48,7 @@ describe('Check if specific brick exist', function() {
       assert.equal(testLegoPile.hasBrick("BLUE", 8), true);
     });
 
-    it('Checks if pile contains contain blackEightBrick', function() {
+    it('Checks if pile does not contain blackEightBrick', function() {
       assert.equal(testLegoPile.hasBrick("BLACK", 8), false);
     });
 });

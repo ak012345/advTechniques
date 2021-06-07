@@ -6,9 +6,9 @@ const Brick = lego.Brick;
 
 const ThePile = lego.LegoPile;
 
-describe('legoPile Insertion Test:', function() {
+describe('LegoPile Insert Tests:', function() {
     const testLegoPile = new ThePile();
-    describe('Insert 1 brick', function() {
+    describe('Insert 1 brick, check is root', function() {
 
         const redFiveBrick = new Brick("Red",5);
         testLegoPile.insert(redFiveBrick);
@@ -24,7 +24,7 @@ describe('legoPile Insertion Test:', function() {
 
     });
 
-    describe('Insert 1 brick of each color', function() {
+    describe('Insert 1 brick of each color, check all are root', function() {
         const testLegoPile = new ThePile();
 
         const redFiveBrick = new Brick("Red",5);
@@ -95,7 +95,7 @@ describe('legoPile Insertion Test:', function() {
     });
 
 
-    describe('insert several bricks of one color', function() {
+    describe('Insert several bricks of one color', function() {
         const testLegoPile = new ThePile();
 
         const redFiveBrick = new Brick("Red", 5);
