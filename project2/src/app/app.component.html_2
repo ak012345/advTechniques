@@ -11,6 +11,7 @@
   :host {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 14px;
+
     color: #333;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -531,8 +532,8 @@
 
 
 <div>
-   <span><a href="/hello">Hello</a></span>
-   <span><a href="/registration">Registration</a></span>
-   <span><a href="/brackets">Brackets</a></span>
+   <span><a href="/Hello">Hello</a></span>
+   <span><a href="/Registration">Registration</a></span>
+   <span><a href="/Brackets">Brackets</a></span>
 </div>
 <router-outlet></router-outlet>
