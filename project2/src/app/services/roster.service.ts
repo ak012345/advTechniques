@@ -3,7 +3,7 @@ import { Contestant } from 'app/model/stock';
 @Injectable({
   providedIn: 'root'
 })
-export class RosterServiceService {
+export class RosterService {
   private contestants: Contestant[];
   constructor() {
     this.contestants = [
