@@ -4,24 +4,30 @@ import { Contestant } from 'app/model/stock';
   providedIn: 'root'
 })
 export class RosterService {
-  private contestants: Contestant[];
+
+  private contestants: string[];
   constructor() {
-    this.contestants = [
-      new Contestant('Anorak'),
-      new Contestant('Second Stock Company'),
-      new Contestant('Last Stock Company')
-    ];
+    this.contestants = [];
    }
 
-   getContestants() : Contestant[] {
+   getContestants() : string[] {
     return this.contestants;
   }
 
-  addContestant(player: Contestant) {
-    let foundPlayer = this.contestants.find(each => each.code === stock.code);
-    if (foundPlayer) {
-      return false;
+  addContestant(player: string) {
+    let foundPlayer = null;
+    
+    for (let currentPlayer of this.contestants){
+      if (currentPlayer === player) {
+        foundPlayer = currentPlayer;
+      }
     }
-    this.contestants.push(  n true;
+
+      if (player === null || player === "" || foundPlayer!= null){
+        return false;
+      }
+    
+    this.contestants.push(player);
+    return true;
   }
 }
