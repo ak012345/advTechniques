@@ -9,18 +9,26 @@ import { RosterService } from '../../services/roster.service';
 export class RegistrationComponent implements OnInit {
 
   public players: string[];
-  public informationMessages: string;
+  public informationMessage: string;
 
-  constructor(roster: RosterService) { 
+  constructor(protected playerRoster: RosterService) { 
     this.players = ['', '', '', '', '', '', '', ''];
-    this.informationMessages = '';
+    this.informationMessage = '';
   }
 
   registerContestants(){
     for(let current of this.players){
       if(current != null || current != ''){
-        this.
+        this.playerRoster.addContestant(current)
       }
+    }
+    let rosterLength = this.playerRoster.contestants.length;
+    if(!(rosterLength == 2 || rosterLength == 4 || rosterLength == 8) ){
+      this.informationMessage = "Inappropriate number of Contestants";
+    } else {
+     this.informationMessage = (this.playerRoster.getContestants()).join();
+          
+      
     }
   }
 

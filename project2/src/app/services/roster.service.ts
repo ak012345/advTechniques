@@ -5,7 +5,7 @@ import { Contestant } from 'app/model/stock';
 })
 export class RosterService {
 
-  private contestants: string[];
+  public contestants: string[];
   constructor() {
     this.contestants = [];
    }
