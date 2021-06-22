@@ -1,1 +1,9 @@
-<p>registration works!</p>
+<p><b>{{ informationMessage }}</b></p>
+<h2>Registration</h2>
+
+<form ngSubmit="registerContestants()" #form="ngForm">
+    <div *ngFor="let player of players;let indexOfelement = index">
+      <input type="text" name="contestant{{indexOfelement}}" placeholder="Contestant {{indexOfelement + 1}}" [(ngModel)]="players[indexOfelement]">
+    </div>
+    <button type="submit">Complete Registration</button>
+    </form>

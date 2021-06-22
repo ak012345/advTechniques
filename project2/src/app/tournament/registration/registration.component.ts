@@ -6,7 +6,7 @@ import { RosterService } from '../../services/roster.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
 
   public players: string[];
   public informationMessage: string;
@@ -29,8 +29,4 @@ export class RegistrationComponent implements OnInit {
      this.informationMessage = this.playerRoster.getContestants().join();
     }
   }
-
-  ngOnInit(): void{
-  }
-
 }
