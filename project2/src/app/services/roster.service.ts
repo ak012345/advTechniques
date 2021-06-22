@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Contestant } from 'app/model/stock';
+
 @Injectable({
   providedIn: 'root'
 })
