@@ -11,14 +11,16 @@ export class RegistrationComponent implements OnInit {
   public players: string[];
   public informationMessages: string;
 
-  constructor() { 
+  constructor(roster: RosterService) { 
     this.players = ['', '', '', '', '', '', '', ''];
     this.informationMessages = '';
   }
 
   registerContestants(){
     for(let current of this.players){
-
+      if(current != null || current != ''){
+        this.
+      }
     }
   }
 
