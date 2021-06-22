@@ -26,9 +26,7 @@ export class RegistrationComponent implements OnInit {
     if(!(rosterLength == 2 || rosterLength == 4 || rosterLength == 8) ){
       this.informationMessage = "Inappropriate number of Contestants";
     } else {
-     this.informationMessage = (this.playerRoster.getContestants()).join();
-          
-      
+     this.informationMessage = this.playerRoster.getContestants().join();
     }
   }
 
