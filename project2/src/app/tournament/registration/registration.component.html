@@ -1,8 +1,8 @@
-<p><b>{{ informationMessage }}</b></p>
-<h2>Registration</h2>
 
-<form ngSubmit="registerContestants()" #form="ngForm">
-    <div *ngFor="let player of players;let indexOfelement = index">
+<h2>Registration</h2>
+<p><b>{{ informationMessage }}</b></p>
+<form (ngSubmit)="registerContestants()" #form="ngForm">
+    <div *ngFor="let player of players;let indexOfelement = index; trackBy:identify">
       <input type="text" name="contestant{{indexOfelement}}" placeholder="Contestant {{indexOfelement + 1}}" [(ngModel)]="players[indexOfelement]">
     </div>
     <button type="submit">Complete Registration</button>

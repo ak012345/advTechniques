@@ -29,4 +29,11 @@ export class RegistrationComponent {
      this.informationMessage = this.playerRoster.getContestants().join();
     }
   }
+
+ identify(index: number) {
+      return index;
+   }
+
+  ngOnInit() {
+  }
 }
