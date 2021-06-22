@@ -8,12 +8,10 @@ import { RosterService } from '../../services/roster.service';
 })
 export class RegistrationComponent {
 
-  public players: string[];
+  public players: string[]= new Array(8).fill('');
   public informationMessage: string;
 
   constructor(protected playerRoster: RosterService) { 
-    this.players = ['', '', '', '', '', '', '', ''];
-    this.informationMessage = '';
   }
 
   registerContestants(){
