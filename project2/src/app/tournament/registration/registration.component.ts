@@ -11,7 +11,7 @@ export class RegistrationComponent {
   public players: string[]= new Array(8).fill('');
   public informationMessage: string;
 
-  constructor(protected playerRoster: RosterService) { 
+  constructor(public playerRoster: RosterService) { 
   }
 
   registerContestants(){

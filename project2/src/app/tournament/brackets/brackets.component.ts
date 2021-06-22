@@ -9,8 +9,9 @@ import { RosterService } from '../../services/roster.service';
 export class BracketsComponent implements OnInit {
   public informationMessage: string;
   
-  constructor(protected roster: RosterService) { 
-    this.informationMessage = '';
+  constructor(public playerRoster: RosterService) { 
+    this.informationMessage = playerRoster.getContestants().join();
+  
   }
 
   ngOnInit(): void {
