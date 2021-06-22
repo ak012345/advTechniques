@@ -19,7 +19,7 @@ import { BracketsComponent } from './tournament/brackets/brackets.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [RosterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

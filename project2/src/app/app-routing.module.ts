@@ -9,7 +9,7 @@ const routes: Routes = [
 {path: '', redirectTo: '/hello', pathMatch: 'full'},
 {path: 'hello' , component: HelloComponent },
 {path: 'registration', component: RegistrationComponent},
-{path: 'brackets', component: BracketsComponent },
+{path: 'brackets', component: BracketsComponent }
 ];
 
 @NgModule({
