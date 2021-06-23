@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RosterService } from '../../services/roster.service';
 import { Match } from 'src/app/model/match';
 import { Routes, RouterModule } from '@angular/router';
@@ -17,7 +17,7 @@ export class BracketsComponent implements OnInit {
   public matchesExist: boolean;
  
   
-  constructor(public playerRoster: RosterService, public router: RouterModule) {
+  constructor(public playerRoster: RosterService,  private changeDetection: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -58,8 +58,8 @@ export class BracketsComponent implements OnInit {
     }
     console.log(this.playerRoster.getContestants().join(','));
 
-    this.makeMatches(this.playerRoster.getContestants());
-    console.log(this.matchesArray.join(', '));
+    this.matchesArray = this.makeMatches(this.playerRoster.getContestants());
+    this.changeDetection.detectChanges();
 
   }
 }
