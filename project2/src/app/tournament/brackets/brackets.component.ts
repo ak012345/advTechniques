@@ -13,15 +13,16 @@ export class BracketsComponent  {
   public roundNumber: number = 1
   public matchesArray: Match[] = []
 
-  constructor(public playerRoster: RosterService) {}
-
-  ngOnInit(): void {
-       
+  constructor(public playerRoster: RosterService) {
     for(let index = 0; index < this.playerRoster.contestants.length; index+2){
       let currentMatch = new Match(this.playerRoster.contestants[index],this.playerRoster.contestants[index+1])
+      console.log(currentMatch.winnersName);
       this.matchesArray.push(currentMatch);
     }    
    
+  }
+
+  ngOnInit(): void {
   }
 
   completeRound(){
