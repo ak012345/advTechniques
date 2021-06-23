@@ -13,8 +13,8 @@ export class BracketsComponent implements OnInit {
   public roundNumber: number = 1
   public matchesArray: Match[] = [];
   public matchesExist: boolean;
+  
   constructor(public playerRoster: RosterService) {
-   
   }
 
   ngOnInit(): void {
@@ -24,6 +24,7 @@ export class BracketsComponent implements OnInit {
 
   completeRound(){
     this.roundNumber++;
+    this.updateContestants();
   }
 
  makeMatches(players: string[]):Match[]{
@@ -31,13 +32,21 @@ export class BracketsComponent implements OnInit {
     const myClonedArray  = [...players];
     let localMatchArray: Match[] = []
     while (myClonedArray.length > 0) {
-        let player2Local = myClonedArray.pop();
-        let player1Local = myClonedArray.pop();
+        let player1Local = myClonedArray.shift();
+        let player2Local = myClonedArray.shift();
         let currentMatch = new Match(player1Local, player2Local);
         localMatchArray.push(currentMatch)
         this.matchesExist = true;
     }
-    return localMatchArray.reverse()
+    return localMatchArray
    }
 
+   updateContestants(){
+    this.playerRoster.clearRoster();
+    
+    for(let currentMatch of this.matchesArray){
+      this.playerRoster.addContestant(currentMatch.winner);
+    }
+
+  }
 }
