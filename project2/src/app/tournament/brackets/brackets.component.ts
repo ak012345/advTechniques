@@ -8,17 +8,17 @@ import { Match } from 'src/app/model/match';
   templateUrl: './brackets.component.html',
   styleUrls: ['./brackets.component.css']
 })
-export class BracketsComponent  {
+export class BracketsComponent implements OnInit {
   public informationMessage: string;
   public roundNumber: number = 1
   public matchesArray: Match[] = [];
-
+  public matchesExist: boolean;
   constructor(public playerRoster: RosterService) {
    
   }
 
   ngOnInit(): void {
-    this.matchesArray = BracketsComponent.makeMatches(this.playerRoster.getContestants());
+    this.matchesArray = this.makeMatches(this.playerRoster.getContestants());
 
   }
 
@@ -26,14 +26,18 @@ export class BracketsComponent  {
     this.roundNumber++;
   }
 
- static makeMatches(players: string[]):Match[]{
+ makeMatches(players: string[]):Match[]{
+ 
     const myClonedArray  = [...players];
-    let localMatchArray: Match[] = [];
-    for(let index = 0; index < players.length; index+2){
-      let currentMatch = new Match(players[index],players[index+1])
-      localMatchArray.push(currentMatch);
-    }   
-    return  localMatchArray;
-  }
+    let localMatchArray: Match[] = []
+    while (myClonedArray.length > 0) {
+        let player2Local = myClonedArray.pop();
+        let player1Local = myClonedArray.pop();
+        let currentMatch = new Match(player1Local, player2Local);
+        localMatchArray.push(currentMatch)
+        this.matchesExist = true;
+    }
+    return localMatchArray.reverse()
+   }
 
 }
