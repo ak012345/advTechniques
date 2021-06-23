@@ -1,38 +1,53 @@
 import { Component, OnInit, ChangeDetectorRef,ChangeDetectionStrategy  } from '@angular/core';
 import { RosterService } from '../../services/roster.service';
 import { Match } from 'src/app/model/match';
-import { Routes, RouterModule } from '@angular/router';
-
 
 
 @Component({
   selector: 'app-brackets',
   templateUrl: './brackets.component.html',
   styleUrls: ['./brackets.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default
+  // changeDetection: ChangeDetectionStrategy.Default
 })
 export class BracketsComponent implements OnInit {
   public informationMessage: string;
   public roundNumber: number = 1
   public matchesArray: Match[] = [];
   public matchesExist: boolean;
- 
+  public winnerFound: boolean = false;
   
-  constructor(public playerRoster: RosterService,  private changeDetection: ChangeDetectorRef) {
+  constructor( public playerRoster: RosterService) {
   }
 
   ngOnInit(): void {
     this.matchesArray = this.makeMatches(this.playerRoster.getContestants());
-
   }
 
   completeRound(){
     this.roundNumber++;
+    this.declareWinner();
     this.updateContestants();
   }
 
+  declareWinner(){
+    let currentWinners : string [] = this.matchesArray.map(match => match.winner);
+    if (currentWinners.length == 1) {
+      this.informationMessage = currentWinners.shift();
+      this.winnerFound = true;
+    }
+  }
 
- makeMatches(players: string[]):Match[]{
+   updateContestants(){
+
+    this.playerRoster.clearRoster();
+    for(let currentMatch of this.matchesArray){
+      this.playerRoster.addContestant(currentMatch.winner);
+    }
+    
+    this.matchesArray = this.makeMatches(this.playerRoster.getContestants());
+
+  }
+  makeMatches(players: string[]):Match[]{
  
     const myClonedArray  = [...players];
     let localMatchArray: Match[] = []
@@ -46,22 +61,4 @@ export class BracketsComponent implements OnInit {
     return localMatchArray
    }
 
-   updateContestants(){
-    console.log(this.playerRoster.getContestants().join(','));
-    this.playerRoster.clearRoster();
-    console.log(this.playerRoster.getContestants().join(','));
-
-    for(let currentMatch of this.matchesArray){
-      this.playerRoster.addContestant(currentMatch.winner);
-    }
-    console.log(this.playerRoster.getContestants().join(','));
-
-    this.matchesArray = this.makeMatches(this.playerRoster.getContestants());
-    this.changeDetection.detectChanges();
-
-  }
-
-  public trackItem (index: number, value: string) {
-    return value;
-  }
 }

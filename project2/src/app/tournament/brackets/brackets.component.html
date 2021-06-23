@@ -1,25 +1,26 @@
+  <h2>Round {{ roundNumber }}</h2>
+  <h3 *ngIf="winnerFound">Winner: {{ informationMessage }}</h3>
 
-    <h2>Round {{ roundNumber }}</h2>
-
-    <form (ngSubmit)="completeRound()">
-      <div *ngFor="let match of matchesArray; index as i; trackBy: trackItem">
+    <form >
+      <div *ngFor="let match of matchesArray; index as i">
         <h3>Match {{ i + 1 }}</h3>
 
         <div>
-          <input type="radio" id="match{{ i }}_player1" name="match{{ i }}" value="{{ matchesArray[i].player1 }}"
+          <input type="radio" id="match{{ i }}P1" name="match{{ i }}" value="{{ matchesArray[i].player1 }}"
             [(ngModel)]="matchesArray[i].winner">
-          <label for="match{{ i }}_player1">{{ matchesArray[i].player1 }}</label>
+
+          <label for="match{{ i }}P1">{{ matchesArray[i].player1 }}</label>
         </div>
 
         <div>
-          <input type="radio" id="match{{ i }}_player2" name="match{{ i }}" value="{{ matchesArray[i].player2 }}"
+          <input type="radio" id="match{{ i }}P2" name="match{{ i }}" value="{{ matchesArray[i].player2 }}"
             [(ngModel)]="matchesArray[i].winner">
-          <label for="match{{ i }}_player2">{{ matchesArray[i].player2 }}</label>
+
+          <label for="match{{ i }}P2">{{ matchesArray[i].player2 }}</label>
         </div>
       </div>
-      <a routerLink="/brackets" routerLinkActive="active">
-      <button type="button" *ngIf="matchesExist">Complete Round</button>
-    </a>
+
+      <button type="button" (click)="completeRound()" *ngIf="!winnerFound" >Complete Round</button>
     </form>
- 
+
 
