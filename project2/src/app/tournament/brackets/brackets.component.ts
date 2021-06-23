@@ -62,4 +62,8 @@ export class BracketsComponent implements OnInit {
     this.changeDetection.detectChanges();
 
   }
+
+  public trackItem (index: number, value: string) {
+    return value;
+  }
 }

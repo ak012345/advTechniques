@@ -2,7 +2,7 @@
     <h2>Round {{ roundNumber }}</h2>
 
     <form (ngSubmit)="completeRound()">
-      <div *ngFor="let match of matchesArray; index as i">
+      <div *ngFor="let match of matchesArray; index as i; trackBy: trackItem">
         <h3>Match {{ i + 1 }}</h3>
 
         <div>
