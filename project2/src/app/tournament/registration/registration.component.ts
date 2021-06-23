@@ -22,7 +22,6 @@ export class RegistrationComponent {
       }
     }
     let rosterLength = this.playerRoster.contestants.length;
-    console.log(rosterLength);
     if(!(rosterLength == 2 || rosterLength == 4 || rosterLength == 8) ){
       this.informationMessage = "Inappropriate number of Contestants";
       this.playerRoster.clearRoster();
