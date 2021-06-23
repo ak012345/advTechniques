@@ -24,7 +24,7 @@ export class RegistrationComponent {
     }
     let rosterLength = this.playerRoster.contestants.length;
     if(!(rosterLength == 2 || rosterLength == 4 || rosterLength == 8) ){
-      this.informationMessage = "Inappropriate number of Contestants";
+      this.informationMessage = "Inappropriate Contestants. Please try again";
     } else {
      this.informationMessage = this.playerRoster.getContestants().join();
     }
