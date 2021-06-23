@@ -51,7 +51,7 @@ describe('RegistrationComponent with REAL SERVICE', () => {
     })
 
     it('roster has 4 players', () => {
-      component.players = ['Anorak', 'Parzival', 'Ach', 'Art3mis']
+      component.players = ['Anorak', 'Parzival', 'Aech', 'Art3mis']
       component.registerContestants()
       expect(component.playerRoster.getContestants()).toEqual(['Anorak', 'Parzival', 'Aech', 'Art3mis'])
     })
@@ -64,6 +64,3 @@ describe('RegistrationComponent with REAL SERVICE', () => {
 
   })
 });
-
-// Make sure you cover cases like duplicates, 
-// invalid numbers of players, "empty" players between valid players, 

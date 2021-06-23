@@ -17,15 +17,17 @@ export class RegistrationComponent {
   registerContestants(){
     this.playerRoster.clearRoster();
     
+    let isProperLength = (this.players.length == 2 || this.players.length == 4 || this.players.length == 8)
+
     for(let current of this.players){
-      if(current != null || current != ''){
+      if((current != null || current != '') && isProperLength){
         this.playerRoster.addContestant(current)
+      } else {
+        this.informationMessage = "Inappropriate number of contestants"
       }
     }
-    let rosterLength = this.playerRoster.contestants.length;
-    if(!(rosterLength == 2 || rosterLength == 4 || rosterLength == 8) ){
-      this.informationMessage = "Inappropriate Contestants. Please try again";
-    } else {
+
+    if(isProperLength){
      this.informationMessage = this.playerRoster.getContestants().join();
     }
   }
