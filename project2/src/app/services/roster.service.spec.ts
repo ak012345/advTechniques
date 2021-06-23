@@ -19,16 +19,19 @@ describe('RosterService', () => {
   describe('addContestant', () => {
     
     it('should not allow null names', () => {
-      expect(() => { service.addContestant(null) }).toBe(false);
+      let result = service.addContestant(null);
+      expect(result).toBeFalse;
     });
         
     it('should not allow empty string names', () => {
-      expect(() => { service.addContestant('') }).toBe(false);
+      let result = service.addContestant('');
+      expect(result).toBeFalse;
     });
 
     it('should not allow duplicate names', () => {
       service.addContestant('Anorak');
-      expect(() => { service.addContestant('Anorak') }).toBe(false);
+      let result = service.addContestant('Anorak');
+      expect(result).toBeFalse;
     });
 
     it('should add one contestant', () => {
