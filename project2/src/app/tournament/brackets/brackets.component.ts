@@ -19,16 +19,16 @@ export class BracketsComponent  {
   }
 
   ngOnInit(): void {
-    this.matchesArray = this.makeMatches(this.playerRoster.getContestants());
+    this.matchesArray = BracketsComponent.makeMatches(this.playerRoster.getContestants());
   }
 
   completeRound(){
     this.roundNumber++;
   }
 
-makeMatches(players: string[]): Match[]{
+static makeMatches(players: string[]): Match[]{
     let localMatchArray: Match[] = [];
-    for(let index = 0; index < players.length; index+2){
+    for(let index = 0; index < players.length/2; index+2){
       let currentMatch = new Match(players[index],players[index+1])
       console.log(currentMatch.winnersName);
       localMatchArray.push(currentMatch);
