@@ -12,7 +12,7 @@ export class RosterService {
     return this.contestants;
   }
 
-  addContestant(player: string) {
+  addContestant(player: string): boolean {
     let foundPlayer = null;
    
     for (let currentPlayer of this.contestants){
@@ -26,7 +26,6 @@ export class RosterService {
       }
     
     this.contestants.push(player);
-    console.log("rosterService pushed player:" + player);
 
     return true;
   }

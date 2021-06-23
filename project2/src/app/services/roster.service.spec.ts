@@ -10,10 +10,6 @@ describe('RosterService', () => {
     service = TestBed.inject(RosterService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
   describe('getContestants', () => {
     it('return contestants array', () => {
       expect(service.getContestants()).toEqual([])
@@ -23,16 +19,16 @@ describe('RosterService', () => {
   describe('addContestant', () => {
     
     it('should not allow null names', () => {
-      expect(() => { service.addContestant(null) }).toBeFalse();
+      expect(() => { service.addContestant(null) }).toBe(false);
     });
         
     it('should not allow empty string names', () => {
-      expect(() => { service.addContestant('Anorak') }).toThrow(false);
+      expect(() => { service.addContestant('') }).toBe(false);
     });
 
     it('should not allow duplicate names', () => {
       service.addContestant('Anorak');
-      expect(() => { service.addContestant('Anorak') }).toBeFalse();
+      expect(() => { service.addContestant('Anorak') }).toBe(false);
     });
 
     it('should add one contestant', () => {

@@ -32,7 +32,7 @@ module.exports = function (config) {
     base: 'Firefox',
     flags: [ '-headless', ] 
      }
-    }
+    },
     singleRun: true,
     restartOnFileChange: true
   });
