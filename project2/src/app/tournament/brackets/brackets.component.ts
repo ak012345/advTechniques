@@ -10,11 +10,11 @@ export class BracketsComponent implements OnInit {
   public informationMessage: string;
   
   constructor(public playerRoster: RosterService) { 
-    this.informationMessage = playerRoster.getContestants().join();
   
   }
 
   ngOnInit(): void {
+    this.informationMessage = this.playerRoster.getContestants().join();
   }
 
 }
