@@ -29,4 +29,8 @@ export class RosterService {
 
     return true;
   }
+  
+  clearRoster(): void {
+    this.contestants = []
+  }
 }

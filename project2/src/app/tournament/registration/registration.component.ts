@@ -15,6 +15,8 @@ export class RegistrationComponent {
   }
 
   registerContestants(){
+    this.playerRoster.clearRoster();
+    
     for(let current of this.players){
       if(current != null || current != ''){
         this.playerRoster.addContestant(current)
