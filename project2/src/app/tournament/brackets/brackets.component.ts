@@ -13,9 +13,7 @@ export class BracketsComponent  {
     this.informationMessage = this.playerRoster.getContestants().join(', ');
   }
 
-  // ngOnInit(): void {
-  //   console.log(this.playerRoster.getContestants().join(', '));
-  //   this.informationMessage = this.playerRoster.getContestants().join(', ');
-  // }
+  ngOnInit(): void {
+  }
 
 }
