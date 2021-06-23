@@ -14,19 +14,26 @@ export class BracketsComponent  {
   public matchesArray: Match[] = []
 
   constructor(public playerRoster: RosterService) {
-    for(let index = 0; index < this.playerRoster.contestants.length; index+2){
-      let currentMatch = new Match(this.playerRoster.contestants[index],this.playerRoster.contestants[index+1])
-      console.log(currentMatch.winnersName);
-      this.matchesArray.push(currentMatch);
-    }    
+
    
   }
 
   ngOnInit(): void {
+    this.matchesArray = this.makeMatches(this.playerRoster.getContestants());
   }
 
   completeRound(){
     this.roundNumber++;
+  }
+
+makeMatches(players: string[]): Match[]{
+    let localMatchArray: Match[] = [];
+    for(let index = 0; index < players.length; index+2){
+      let currentMatch = new Match(players[index],players[index+1])
+      console.log(currentMatch.winnersName);
+      localMatchArray.push(currentMatch);
+    }   
+    return  localMatchArray;
   }
 
 }

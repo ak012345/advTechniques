@@ -5,12 +5,4 @@ export class Match {
         this.winnersName = player1;
     }
 
-    setWinner(winner: string){
-        this.winnersName = winner;
-    }
-
-    getWinner() {
-        return this.winnersName;
-    }
-
 }
