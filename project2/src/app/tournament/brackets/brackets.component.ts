@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RosterService } from '../../services/roster.service';
 import { Match } from 'src/app/model/match';
+import { Routes, RouterModule } from '@angular/router';
+
 
 
 @Component({
@@ -13,8 +15,9 @@ export class BracketsComponent implements OnInit {
   public roundNumber: number = 1
   public matchesArray: Match[] = [];
   public matchesExist: boolean;
+ 
   
-  constructor(public playerRoster: RosterService) {
+  constructor(public playerRoster: RosterService, public router: RouterModule) {
   }
 
   ngOnInit(): void {
@@ -26,6 +29,10 @@ export class BracketsComponent implements OnInit {
     this.roundNumber++;
     this.updateContestants();
   }
+
+  // trackByIndex(id: any): any {
+  //   return id
+  // }
 
  makeMatches(players: string[]):Match[]{
  
@@ -42,11 +49,17 @@ export class BracketsComponent implements OnInit {
    }
 
    updateContestants(){
+    console.log(this.playerRoster.getContestants().join(','));
     this.playerRoster.clearRoster();
-    
+    console.log(this.playerRoster.getContestants().join(','));
+
     for(let currentMatch of this.matchesArray){
       this.playerRoster.addContestant(currentMatch.winner);
     }
+    console.log(this.playerRoster.getContestants().join(','));
+
+    this.makeMatches(this.playerRoster.getContestants());
+    console.log(this.matchesArray.join(', '));
 
   }
 }
