@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef,ChangeDetectionStrategy  } from '@angular/core';
 import { RosterService } from '../../services/roster.service';
 import { Match } from 'src/app/model/match';
 import { Routes, RouterModule } from '@angular/router';
@@ -8,7 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-brackets',
   templateUrl: './brackets.component.html',
-  styleUrls: ['./brackets.component.css']
+  styleUrls: ['./brackets.component.css'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class BracketsComponent implements OnInit {
   public informationMessage: string;
@@ -30,9 +31,6 @@ export class BracketsComponent implements OnInit {
     this.updateContestants();
   }
 
-  // trackByIndex(id: any): any {
-  //   return id
-  // }
 
  makeMatches(players: string[]):Match[]{
  
