@@ -1,5 +1,5 @@
 export class Match {
-    private winnersName: string;
+    public winnersName: string;
    
     constructor(public player1: string, public player2: string) {
         this.winnersName = player1;

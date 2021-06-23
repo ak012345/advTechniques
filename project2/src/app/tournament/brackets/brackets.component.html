@@ -1,2 +1,24 @@
 <h2>Brackets</h2>
 {{ informationMessage }}
+
+<form>
+    <div *ngFor="let currentMatch of matchesArray; index as i">
+      <h2>Match {{ i + 1 }}</h2>
+
+      <div>
+        <input type="radio"  name="currentMatch{{ i }}" value="{{ matchesArray[i].player1 }} " id="m{{ i }}p1"
+          [(ngModel)]="matchesArray[i].winnersName">
+
+        <label for="m{{ i }}p1">{{ matchesArray[i].player1 }}</label>
+      </div>
+
+      <div>
+        <input type="radio"  name="currentMatch{{ i }}" value="{{ matchesArray[i].player2 }} " id="m{{ i }}p2"
+          [(ngModel)]="matchesArray[i].winnersName">
+
+        <label for="m{{ i }}p2">{{ matchesArray[i].player2 }}</label>
+      </div>
+    </div>
+
+    <button type="button" (click)="completeRound()" >Complete Round</button>
+  </form>

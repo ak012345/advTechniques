@@ -24,4 +24,8 @@ export class BracketsComponent  {
    
   }
 
+  completeRound(){
+    this.roundNumber++;
+  }
+
 }
