@@ -3,7 +3,7 @@
 <p><b>{{ informationMessage }}</b></p>
 <form (ngSubmit)="registerContestants()">
     <div *ngFor="let player of players;index as i; trackBy:identify">
-      <input type="text" name="contestant{{i}}" placeholder="Contestant {{i + 1}}" [(ngModel)]="players[i]">
+      <input type="text" name="player{{i}}" placeholder="Contestant {{i + 1}}" [(ngModel)]="players[i]">
     </div>
     <button type="submit">Complete Registration</button>
 </form>

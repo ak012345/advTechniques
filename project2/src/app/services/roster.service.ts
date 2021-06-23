@@ -7,7 +7,7 @@ export class RosterService {
 
   public contestants: string[];
   constructor() {
-    this.contestants = [];
+    this.contestants = ["asd","dfgg"];
    }
 
    getContestants() : string[] {
