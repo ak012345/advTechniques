@@ -36,4 +36,18 @@ export class RegistrationComponent {
 
   ngOnInit() {
   }
+
+  generateNames(numberOfNames: number){
+    switch(numberOfNames){
+      case 2:
+        this.players = ['Anorak', 'Parzival','','','','','',''];
+        break;
+      case 4:
+        this.players = ['Anorak', 'Parzival', 'Aech', 'Art3mis','','','','']
+        break;
+      case 8:
+        this.players = ['Anorak', 'Parzival', 'Aech', 'Art3mis', 'Sho','Daito','TGAP_Ogg','iRok']
+        break;
+    }
+  }
 }
