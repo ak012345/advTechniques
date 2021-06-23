@@ -16,18 +16,17 @@ export class RegistrationComponent {
 
   registerContestants(){
     this.playerRoster.clearRoster();
-    
-    let isProperLength = (this.players.length == 2 || this.players.length == 4 || this.players.length == 8)
-
     for(let current of this.players){
-      if((current != null || current != '') && isProperLength){
+      if(current != null || current != ''){
         this.playerRoster.addContestant(current)
-      } else {
-        this.informationMessage = "Inappropriate number of contestants"
       }
     }
-
-    if(isProperLength){
+    let rosterLength = this.playerRoster.contestants.length;
+    console.log(rosterLength);
+    if(!(rosterLength == 2 || rosterLength == 4 || rosterLength == 8) ){
+      this.informationMessage = "Inappropriate number of Contestants";
+      this.playerRoster.clearRoster();
+    } else {
      this.informationMessage = this.playerRoster.getContestants().join();
     }
   }
