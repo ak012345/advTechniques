@@ -27,10 +27,10 @@ export class BracketsComponent  {
   }
 
  static makeMatches(players: string[]):Match[]{
+    const myClonedArray  = [...players];
     let localMatchArray: Match[] = [];
     for(let index = 0; index < players.length; index+2){
       let currentMatch = new Match(players[index],players[index+1])
-      console.log(currentMatch.winnersName);
       localMatchArray.push(currentMatch);
     }   
     return  localMatchArray;
